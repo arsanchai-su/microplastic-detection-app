@@ -4,4 +4,3 @@ pandas
 streamlit
 skia-python
 ultralytics==8.0.20
-Python==3.10
