@@ -9,15 +9,15 @@ model_path = 'weights/microplastic-detection-yolo8m.pt'
 
 # Setting page layout
 st.set_page_config(
-    page_title="Object Detection using YOLOv8",  # Setting page title
-    page_icon="🤖",     # Setting page icon
+    page_title="Microplastic Detection using YOLOv8",  # Setting page title
+    page_icon="📃",     # Setting page icon
     layout="wide",      # Setting layout to wide
     initial_sidebar_state="expanded"    # Expanding sidebar by default
 )
 
 # Creating sidebar
 with st.sidebar:
-    st.header("Image/Video Config")     # Adding header to sidebar
+    st.header("Upload Image")     # Adding header to sidebar
     # Adding file uploader to sidebar for selecting images
     source_img = st.file_uploader(
         "Choose an image...", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
@@ -27,7 +27,12 @@ with st.sidebar:
         "Select Model Confidence", 25, 100, 40)) / 100
 
 # Creating main page heading
-st.title("Object Detection using YOLOv8")
+st.title("Microplastic Detection using YOLOv8")
+st.write("Welcome to the Microplastic Detection Application!")
+st.write("This web application allows you to detect and classify microplastics using the model described in the paper:")
+st.write("'A Detection and Classification of Microplastics Based on YOLOv8 and YOLO-NAS'.")
+st.markdown("Visit GitHub:<a href='https://github.com/arsanchai-su/microplastic-detection' target='_blank'>GitHub Repository</a>", unsafe_allow_html=True)
+
 
 # Creating two columns on the main page
 col1, col2 = st.columns(2)
@@ -55,15 +60,40 @@ if st.sidebar.button('Detect Objects'):
                         conf=confidence
                         )
     boxes = res[0].boxes
+    class_idx = res[0].boxes.cls.cpu().numpy().astype(int)
+    
+    label_names = {
+    0: 'Fibers',
+    1: 'Films',
+    2: 'Fragments',
+    3: 'Pallets'
+    }
+    label_counts = {}
+
+    for label in class_idx:
+        label_name = label_names.get(label, 'unknown')  # Get the label name from the dictionary
+        if label_name in label_counts:
+            label_counts[label_name] += 1
+        else:
+            label_counts[label_name] = 1
+    
     res_plotted = res[0].plot()[:, :, ::-1]
     with col2:
         st.image(res_plotted,
                  caption='Detected Image',
                  use_column_width=True
                  )
+        st.write("<span style='font-size: 20px;'>Type of microplastic: Q'ty</span>", unsafe_allow_html=True)
+        for idx, (label, count) in enumerate(label_counts.items()):
+            color = 'green' if idx % 2 == 0 else 'blue'
+            st.markdown(f"<span style='color: {color}; font-size: 20px;'>{label}: {count}</span>", unsafe_allow_html=True)
+
+            
         try:
             with st.expander("Detection Results"):
                 for box in boxes:
                     st.write(box.xywh)
+                    
+                    
         except Exception as ex:
             st.write("No image is uploaded yet!")
