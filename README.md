@@ -9,7 +9,7 @@ This github is contain model after train of paper `A detection and classificatio
 ## Using in colab
 `Using in colab`
 
-You can use example code for inferance model at `example.ipynb` in this github. 
+You can use example code for inferance model at `example.ipynb` in this github. <br />
 You can acess and our model in this github .
 ```
 weights/microplastic-detection-yolo8m.pt
