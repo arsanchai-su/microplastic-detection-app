@@ -14,12 +14,12 @@ You can acess and our model in this github .
 ```
 weights/microplastic-detection-yolo8m.pt
 ```
-You can also see our example code for inferance model at `example.ipynb` in this github. 
 
-##Web application for Miceoplastic dection. 
+
+## Web application for Miceoplastic dection. 
 You can acess in below link. 
 ```
-pip install ultralytics
+[pip install ultralytics](https://microplastic.onrender.com/)
 ```
 
 Before using model must be install library.
