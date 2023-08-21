@@ -19,10 +19,18 @@ weights/microplastic-detection-yolo8m.pt
 ## Web application for Miceoplastic dection. 
 You can acess in below link. 
 ```
-[pip install ultralytics](https://microplastic.onrender.com/)
+https://microplastic.onrender.com/
 ```
 
-Before using model must be install library.
+## Run with streamlit in your local computer
+**Step1**
+Clone this repository. 
 ```
-pip install ultralytics
+git clone https://github.com/arsanchai-su/microplastic-detection-app.git
 ```
+**Step2**
+Change working directory 
+```
+cd microplastic-detection-app
+```
+
