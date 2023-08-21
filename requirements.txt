@@ -3,3 +3,4 @@ streamlit-image-comparison
 pandas
 ultralytics
 streamlit
+skia-python
