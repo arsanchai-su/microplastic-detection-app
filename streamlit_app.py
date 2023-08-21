@@ -60,22 +60,22 @@ if st.sidebar.button('Detect Objects'):
                         conf=confidence
                         )
     boxes = res[0].boxes
-    # class_idx = res[0].boxes.cls.cpu().numpy().astype(int)
+    class_idx = res[0].boxes.cls.cpu().numpy().astype(int)
     
-    # label_names = {
-    # 0: 'Fibers',
-    # 1: 'Films',
-    # 2: 'Fragments',
-    # 3: 'Pallets'
-    # }
-    # label_counts = {}
+    label_names = {
+    0: 'Fibers',
+    1: 'Films',
+    2: 'Fragments',
+    3: 'Pallets'
+    }
+    label_counts = {}
 
-    # for label in class_idx:
-    #     label_name = label_names.get(label, 'unknown')  # Get the label name from the dictionary
-    #     if label_name in label_counts:
-    #         label_counts[label_name] += 1
-    #     else:
-    #         label_counts[label_name] = 1
+    for label in class_idx:
+        label_name = label_names.get(label, 'unknown')  # Get the label name from the dictionary
+        if label_name in label_counts:
+            label_counts[label_name] += 1
+        else:
+            label_counts[label_name] = 1
     
     res_plotted = res[0].plot()[:, :, ::-1]
     with col2:
@@ -83,10 +83,10 @@ if st.sidebar.button('Detect Objects'):
                  caption='Detected Image',
                  use_column_width=True
                  )
-        # st.write("<span style='font-size: 20px;'>Type of microplastic: Q'ty</span>", unsafe_allow_html=True)
-        # for idx, (label, count) in enumerate(label_counts.items()):
-        #     color = 'green' if idx % 2 == 0 else 'blue'
-        #     st.markdown(f"<span style='color: {color}; font-size: 20px;'>{label}: {count}</span>", unsafe_allow_html=True)
+        st.write("<span style='font-size: 20px;'>Type of microplastic: Q'ty</span>", unsafe_allow_html=True)
+        for idx, (label, count) in enumerate(label_counts.items()):
+            color = 'green' if idx % 2 == 0 else 'blue'
+            st.markdown(f"<span style='color: {color}; font-size: 20px;'>{label}: {count}</span>", unsafe_allow_html=True)
 
             
         try:
