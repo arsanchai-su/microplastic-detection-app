@@ -16,8 +16,8 @@ weights/microplastic-detection-yolo8m.pt
 ```
 
 
-## Web application for Miceoplastic dection. 
-You can acess in below link. 
+## Web application. 
+You can acess our example web application in below link. 
 ```
 https://microplastic.onrender.com/
 ```
@@ -32,5 +32,20 @@ git clone https://github.com/arsanchai-su/microplastic-detection-app.git
 Change working directory 
 ```
 cd microplastic-detection-app
+```
+**Step3**
+ Install packages with pip. 
+```
+pip install -r requirements.txt
+```
+**Step4**
+Run  streamlit by using command. 
+```
+streamlit run streamlit_app.py 
+```
+**Step5**
+Access you localhost.
+```
+http://localhost:8501/
 ```
 
