@@ -5,14 +5,14 @@ import pafy
 
 import settings
 
-model_path = 'weights/micro_best.pt'
+model_path = 'weights/microplastic-detection-yolo8m.pt'
 
 def load_model(model_path):
     '''
     Loads a YOLO object detection model from the specified model_path.
 
     Parameters:       
-        model_path: #'micro_best.pt'#The path to the YOLO model file.
+        model_path: #'microplastic-detection-yolo8m.pt'#The path to the YOLO model file.
 
     Returns:
         #A YOLO object detection model.

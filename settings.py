@@ -25,8 +25,8 @@ SOURCES_LIST = [IMAGE] # VIDEO, WEBCAM, RTSP, YOUTUBE
 
 # Images config
 IMAGES_DIR = ROOT / 'images'
-DEFAULT_IMAGE = IMAGES_DIR / 'micro_.png'
-DEFAULT_DETECT_IMAGE = IMAGES_DIR / 'micro_Detect.png'
+DEFAULT_IMAGE = IMAGES_DIR / 'example1.png'
+DEFAULT_DETECT_IMAGE = IMAGES_DIR / 'example1_detect.png'
 
 # Videos config
 VIDEO_DIR = ROOT / 'videos'
@@ -45,7 +45,7 @@ VIDEOS_DICT = {
 
 # ML Model config
 MODEL_DIR = ROOT / 'weights'
-DETECTION_MODEL = MODEL_DIR / 'micro_best.pt'
+DETECTION_MODEL = MODEL_DIR / 'microplastic-detection-yolo8m.pt'
 #SEGMENTATION_MODEL = MODEL_DIR / 'yolov8n-seg.pt'
 
 # Webcam
