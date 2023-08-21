@@ -1,4 +1,4 @@
-# microplastic-detection by using YOLO
+# Microplastic-detection by using YOLO
 
 ## Object detection model 
 
@@ -6,14 +6,19 @@ This github is contain model after train of paper `A detection and classificatio
 <br />
 <br />
 
-###Using in colab
+##Using in colab
 You can use example code for inferance model at `example.ipynb` in this github. 
 You can acess and our model in this github .
 ```
-https://drive.google.com/file/d/1BYL4DpHEJiMvSMfrLL_0S1VcbEUrgVdS
+weights/microplastic-detection-yolo8m.pt
 ```
 You can also see our example code for inferance model at `example.ipynb` in this github. 
 
+##Web application for Miceoplastic dection. 
+You can acess in below link. 
+```
+pip install ultralytics
+```
 
 Before using model must be install library.
 ```
