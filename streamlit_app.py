@@ -3,9 +3,11 @@ import PIL
 
 import streamlit as st
 from ultralytics import YOLO
+import time  # Add the time module
+
 
 # Replace the relative path to your weight file
-model_path = 'weights/microplastic-detection-yolo8m.pt'
+model_path = 'weights/t29.pt' # Change to T29 weigth
 
 # Setting page layout
 st.set_page_config(
@@ -56,9 +58,17 @@ except Exception as ex:
     st.error(ex)
 
 if st.sidebar.button('Detect Objects'):
+    # Capture start time
+    start_time = time.time()
+    
     res = model.predict(uploaded_image,
                         conf=confidence
                         )
+    
+    # Capture end time and calculate prediction time
+    end_time = time.time()
+    prediction_time = end_time - start_time
+    
     boxes = res[0].boxes
     class_idx = res[0].boxes.cls.cpu().numpy().astype(int)
     
@@ -88,6 +98,8 @@ if st.sidebar.button('Detect Objects'):
             color = 'green' if idx % 2 == 0 else 'blue'
             st.markdown(f"<span style='color: {color}; font-size: 20px;'>{label}: {count}</span>", unsafe_allow_html=True)
 
+        # Display the prediction time
+        st.write(f"Prediction Time: {prediction_time:.2f} seconds")
             
         try:
             with st.expander("Detection Results"):
