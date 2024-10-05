@@ -27,11 +27,11 @@ with st.sidebar:
         "Select Model Confidence", 25, 100, 40)) / 100
 
 # Creating main page heading
-st.title("Microplastic Detection using YOLOv8")
+st.title("Microplastic Detection using YOLOv8 ")
 st.write("Welcome to the Microplastic Detection Application!")
 st.write("This web application allows you to detect and classify microplastics using the model described in the paper:")
 st.write("'A Detection and Classification of Microplastics Based on YOLOv8 and YOLO-NAS'.")
-st.markdown("Visit GitHub:<a href='https://github.com/arsanchai-su/microplastic-detection' target='_blank'>GitHub Repository</a>", unsafe_allow_html=True)
+st.markdown("Visit GitHub:<a href='https://github.com/arsanchai-su/microplastic-detection' target='_blank'>GitHub Repository </a>", unsafe_allow_html=True)
 
 
 # Creating two columns on the main page
